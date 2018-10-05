@@ -1,0 +1,15 @@
+<form action="home.php" method="post" accept-charset="utf-8">
+		<label for="nombre">Nombre</label>
+		<input type="text" name="nombre" id="nombre" minlength="5" maxlength="15" pattern="[A-Za-z]{4,15}" required><br>
+		<label for="apellido">apellido</label>
+		<input type="text" name="apellido" id="apellido" minlength="5" maxlength="20" pattern="[A-Za-z]{4,20}" required><br>	
+		<label for="telefono">telefono</label>
+		<input type="text" name="telefono" id="telefono" pattern="[0-9]{9}" required><br>
+		<label for="email">email</label>
+		<input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required><br>
+		<label for="">comentario</label><br>
+		<textarea rows="6" placeholder="opcinal"></textarea><br>
+		<p id="mensajeError"></p>
+		<input type="submit" name="enviar" id="enviar" value="Enviar">
+	</form>
+

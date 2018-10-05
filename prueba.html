@@ -6,9 +6,13 @@
 	<title>Prueba</title>
 	<link rel="stylesheet" href="">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/bootstrapcss/bootstrap.min.css">
 
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/bootstrapjs/bootstrap.min.js"></script>
 	<script src="validar.js"></script>
+	
 	<style>
 		.error {
 			border: 1px red solid;
@@ -16,16 +20,69 @@
 	</style>
 </head>
 <body>
-	<form action="home.php" method="post">
+
+	
+<section id="contactanos">
+	<div class="container">
+		<form action="home.php" method="post" autocomplete="off">
+			<div class="row">
+				<div class="col-md-6 date-left">
+					<div class="form-group">
+						<label for="">Nombre</label>
+						<input type="text" name="nombre" id="nombre" minlength="5" maxlength="15" pattern="[A-Za-z]{4,15}" class="form-control" required>
+						<label for="">Apellido</label>
+						<input type="text" name="apellido" id="apellido" minlength="5" maxlength="20" pattern="[A-Za-z]{4,20}" class="form-control" required>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="">Telefono</label>
+								<input type="text" name="telefono" id="telefono" pattern="[0-9]{9}" class="form-control" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+			                <div class="form-group">
+				                <label for="">Email</label>
+				                <input id="email" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control" required>
+			                </div>
+			            </div>
+					</div>
+				</div>
+				<div class="col-md-6 date-right">
+					<div class="form-group">
+						<label for="">Observaciones / Comentraios</label>
+						<textarea id="obsComen" name="obsComen" class="form-control" rows="6" placeholder="Opcional"></textarea>
+					</div>
+					<p id="mensajeError"></p>
+					<input type="submit" name="enviar" id="enviar" value="Enviar" class="justify-content-around btn btn-primary float-right boton-enviar">
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+
+<div class="container">
+  <h3>Popover Example</h3>
+  <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a>
+</div>
+	
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+<!-- <form action="home.php" method="post">
 	  <label for="">Nombre</label>
 	  <input type="text" id="nombre" name="nombre" min="5" maxlength="15" pattern="[A-Za-z]{2,15}" required><br>
 	  <label for="">Edad</label>
 	  <input type="number" name="edad" id="edad" min="18" max="100" required>
 	  <p id="mensajeError"></p>
 	  <input type="submit" name="" value="Enviar" id="enviar">
-	</form>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-</body>
-</html>
+	</form> -->

@@ -7,37 +7,81 @@ function validarNombre() {
 	var elemento = document.getElementById("nombre");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error2(elemento, "El nombre es incorrecto")
+			error2(elemento, "El nombre es incorrecto");
 		}
 		if (elemento.validity.patternMismatch) {
-			error2(elemento, "Debe tener entre 2 y 15 caract");
+			error2(elemento, "Debe tener entre 5 y 15 caract");
 		}
+	
 		// error(elemento);
-		return false
+		return false;
 	}
 	return true;
 }
-function validarEdad() {
-	var elemento = document.getElementById("edad");
+
+function validarApellido() {
+	var elemento = document.getElementById("apellido");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error2(elemento, "Debe introducir su edad");
+			error2(elemento, "Apellido es incorrecto");
 		}
-		if (elemento.validity.rangeOverflow) {
-			error2(elemento, "El valor debe ser menor a 100");
+		if (elemento.validity.patternMismatch) {
+			error2(elemento, "Debe tener entre 5 y 20 caract");
 		}
-		if (elemento.validity.rangeUnderflow) {
-			error2(elemento, "El valor debe ser mayor a 18");
-		}
+		
 		// error(elemento);
-		return false
+		return false;
 	}
+	return true;
+}
+
+function validarTelefono() {
+	var elemento = document.getElementById("telefono");
+	if (!elemento.checkValidity()) {
+		if (elemento.validity.valueMissing) {
+			error2(elemento, "El telefono es incorrecto");
+		}
+		if (elemento.validity.patternMismatch) {
+			error2(elemento, "El telefono debe contener 9 digitos");
+		}
+		if (elemento.validity.typeMismatch) {
+			error2(elemento, "No es numero");
+		}
+		return false;
+	}
+	return true;
+}
+
+function validarEmail() {
+		var elemento = document.getElementById("email");
+		if (!elemento.checkValidity()) {
+			if (elemento.validity.valueMissing) {
+				error2(elemento, "Email es incorrecto");
+			}
+			if (elemento.validity.patternMismatch) {
+				error2(elemento, "Email no ubicado");
+			}
+			return false;
+		}
+		return true;
+}
+
+function validarComentarios() {
+	var elemento = document.getElementById("obsComen");
+	if (!elemento.checkValidity()) {
+		return false;
+	}
+	return true;
+}
+
+function confirmar() {
+	confirm("pulsa aceptar para enviar tu datos");
 	return true;
 }
 
 function validar(e) {
 	borrarError();
-	if (validarNombre() && validarEdad() && confirm("pulsa aceptar para enviar tu datos")) {
+	if (validarNombre() && validarApellido() && validarTelefono() && validarEmail() && confirmar()) {
 		return true;	
 	} else {
 		e.preventDefault();
@@ -48,7 +92,7 @@ function validar(e) {
 function error(elemento) {
 	document.getElementById("mensajeError").innerHTML = elemento.validationMessage;
 	elemento.validationMessage;
-	elemento.className = "error"
+	elemento.className = "error";
 	elemento.focus();
 }
 
