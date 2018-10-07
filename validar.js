@@ -74,14 +74,10 @@ function validarComentarios() {
 	return true;
 }
 
-function confirmar() {
-	confirm("pulsa aceptar para enviar tu datos");
-	return true;
-}
-
 function validar(e) {
 	borrarError();
-	if (validarNombre() && validarApellido() && validarTelefono() && validarEmail() && confirmar()) {
+	var confirmar = confirm('Ready!');
+	if (validarNombre() && validarApellido() && validarTelefono() && validarEmail() && confirmar) {
 		return true;	
 	} else {
 		e.preventDefault();

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="validar.js"></script>
+  <!--Alertify-->
+  
+
+  <style>
+    .error {
+      border: 1px red solid;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="contactanos">
+  <div class="container">
+    <form action="" method="" autocomplete="on">
+      <div class="row">
+        <div class="col-md-6 date-left">
+          <div class="form-group">
+            <label for="">Nombre</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-user"></i></div>
+              </div>
+              <input type="text" name="nombre" id="nombre" minlength="5" maxlength="15" pattern="[A-Za-z]{4,15}" class="form-control" required>
+            </div>
+
+
+            <label for="">Apellido</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-user"></i></div>
+              </div>
+            <input type="text" name="apellido" id="apellido" minlength="5" maxlength="20" pattern="[A-Za-z]{4,20}" class="form-control" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Telefono</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-phone"></i>
+                    </div>
+                  </div>
+                <input type="text" name="telefono" id="telefono" pattern="[0-9]{9}" class="form-control" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Email</label>
+                       <div class="input-group">
+                         <div class="input-group-prepend">
+                           <div class="input-group-text">
+                             <i class="fas fa-at"></i>
+                           </div>
+                         </div>
+                       <input id="email" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control" required>
+                        </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 date-right">
+          <div class="form-group">
+            <label for="">Observaciones / Comentraios</label>
+            <textarea id="obsComen" name="obsComen" class="form-control" rows="6" placeholder="Opcional"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+               <p id="mensajeError"></p>             
+            </div>
+            <div class="col-md-6">
+                <input type="submit" name="enviar" id="enviar" value="Enviar" class="justify-content-around btn btn-primary float-right btn-lg boton-enviar">    
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<script type="text/javascript" src="js/alertifyJS/alertErr.js"></script>
+
+
+
+<script type="text/javascript">
+  //  $(function () {
+  //   $('#contactanos').tooltip({
+  //      title: ,
+  //      html: true,
+  //      placement: "right",
+  //      selector: '.form-control'
+  //   })
+  // })
+</script>
+
+</body>
+</html>
