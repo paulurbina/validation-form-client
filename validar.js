@@ -3,17 +3,33 @@ function iniciar() {
 	document.getElementById("enviar").addEventListener('click', validar, false);
 }
 
+//ERRORES 
+var ERROR = {
+		Nombre: function(mensaje) {
+			alertify.set('notifier','position', 'top-right');
+ 			alertify.error(mensaje);
+		},
+		// Apellido: function(mensaje) {
+		// 	alertify.set('notifier','position', 'top-right');
+		// 	alertify.error(mensaje);			
+		// },
+		// Telefono: function(mensaje) {
+		// 	alertify.set('notifier','position', 'top-right');
+		// 	alertify.error(mensaje);
+		// }
+}
+
+
+//VALIDATION
 function validarNombre() {
 	var elemento = document.getElementById("nombre");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error2(elemento, "El nombre es incorrecto");
+			error2(elemento, ERROR.Nombre("El nombre es incorrecto"));
 		}
 		if (elemento.validity.patternMismatch) {
-			error2(elemento, "Debe tener entre 5 y 15 caract");
-		}
-	
-		// error(elemento);
+			error2(elemento, ERROR.Nombre("Debe tener entre 5 y 15 caract"));
+		}	
 		return false;
 	}
 	return true;
@@ -23,10 +39,10 @@ function validarApellido() {
 	var elemento = document.getElementById("apellido");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error2(elemento, "Apellido es incorrecto");
+			error2(elemento, ERROR.Apellido("El apellido es incorrecto"));
 		}
 		if (elemento.validity.patternMismatch) {
-			error2(elemento, "Debe tener entre 5 y 20 caract");
+			error2(elemento, ERROR.Apellido("Debe tener entre 5 y 10 caract"));
 		}
 		
 		// error(elemento);
@@ -39,13 +55,13 @@ function validarTelefono() {
 	var elemento = document.getElementById("telefono");
 	if (!elemento.checkValidity()) {
 		if (elemento.validity.valueMissing) {
-			error2(elemento, "El telefono es incorrecto");
+			error2(elemento, ERROR.Telefono("El telefono es incorrecto"));
 		}
 		if (elemento.validity.patternMismatch) {
-			error2(elemento, "El telefono debe contener 9 digitos");
+			error2(elemento, ERROR.Telefono("El telefono debe contener 9 digitos"));
 		}
 		if (elemento.validity.typeMismatch) {
-			error2(elemento, "No es numero");
+			error2(elemento, ERROR.Telefono("No es numero"));
 		}
 		return false;
 	}
@@ -76,7 +92,7 @@ function validarComentarios() {
 
 function validar(e) {
 	borrarError();
-	var confirmar = confirm('Ready!');
+	// var confirmar = alertify.alert('','Error al enviar').set('basic',false);
 	if (validarNombre() && validarApellido() && validarTelefono() && validarEmail() && confirmar) {
 		return true;	
 	} else {
@@ -93,7 +109,7 @@ function error(elemento) {
 }
 
 function error2 (elemento, mensaje) {
-	document.getElementById("mensajeError").innerHTML = mensaje;
+	// document.getElementById("mensajeError").innerHTML = mensaje;
 	elemento.className = "error";
 	elemento.focus();
 }

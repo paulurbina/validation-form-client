@@ -47,7 +47,7 @@
             closeButton:false
         },
         glossary:{
-            title:'AlertifyJS',
+            title:'AlertifyJS', 
             ok: 'OK',
             cancel: 'Cancel',
             acccpt: 'Accept',
