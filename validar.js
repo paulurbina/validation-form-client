@@ -9,14 +9,18 @@ var ERROR = {
 			alertify.set('notifier','position', 'top-right');
  			alertify.error(mensaje);
 		},
-		// Apellido: function(mensaje) {
-		// 	alertify.set('notifier','position', 'top-right');
-		// 	alertify.error(mensaje);			
-		// },
-		// Telefono: function(mensaje) {
-		// 	alertify.set('notifier','position', 'top-right');
-		// 	alertify.error(mensaje);
-		// }
+		Apellido: function(mensaje) {
+			alertify.set('notifier','position', 'top-right');
+			alertify.error(mensaje);			
+		},
+		Telefono: function(mensaje) {
+			alertify.set('notifier','position', 'top-right');
+			alertify.error(mensaje);
+		},
+		Email: function(mensaje) {
+			alertify.set('notifier','position', 'top-right');
+			alertify.error(mensaje);
+		}
 }
 
 
@@ -72,10 +76,10 @@ function validarEmail() {
 		var elemento = document.getElementById("email");
 		if (!elemento.checkValidity()) {
 			if (elemento.validity.valueMissing) {
-				error2(elemento, "Email es incorrecto");
+				error2(elemento, ERROR.Email("Email es incorrecto"));
 			}
 			if (elemento.validity.patternMismatch) {
-				error2(elemento, "Email no ubicado");
+				error2(elemento, ERROR.Email("Email no encontrado"));
 			}
 			return false;
 		}
@@ -92,21 +96,25 @@ function validarComentarios() {
 
 function validar(e) {
 	borrarError();
-	// var confirmar = alertify.alert('','Error al enviar').set('basic',false);
-	if (validarNombre() && validarApellido() && validarTelefono() && validarEmail() && confirmar) {
-		return true;	
+	function confirmar(mensaje) {
+		return {
+			alertify.confirm(mensaje).set('modal', true);
+		}
+	} 
+	if (validarNombre() && validarApellido() && validarTelefono() && validarEmail() && confirmar("Desea enviar sus datos")) {
+		return true;
 	} else {
 		e.preventDefault();
 		return false;
 	}
 }
 
-function error(elemento) {
-	document.getElementById("mensajeError").innerHTML = elemento.validationMessage;
-	elemento.validationMessage;
-	elemento.className = "error";
-	elemento.focus();
-}
+// function error(elemento) {
+// 	document.getElementById("mensajeError").innerHTML = elemento.validationMessage;
+// 	elemento.validationMessage;
+// 	elemento.className = "error";
+// 	elemento.focus();
+// }
 
 function error2 (elemento, mensaje) {
 	// document.getElementById("mensajeError").innerHTML = mensaje;
