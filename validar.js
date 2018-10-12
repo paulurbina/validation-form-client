@@ -3,8 +3,10 @@ function iniciar() {
 	document.getElementById("enviar").addEventListener('click', validar, false);
 }
 
-//ERRORES 
+//ERRORES  
+
 var ERROR = {
+		//Aplicar method map()
 		Nombre: function(mensaje) {
 			alertify.set('notifier','position', 'top-right');
  			alertify.error(mensaje);
@@ -97,9 +99,7 @@ function validarComentarios() {
 function validar(e) {
 	borrarError();
 	function confirmar(mensaje) {
-		return {
-			alertify.confirm(mensaje).set('modal', true);
-		}
+		alertify.confirm(mensaje).set('labels', {ok:'Ok!', cancel:'Cancel'}); 
 	} 
 	if (validarNombre() && validarApellido() && validarTelefono() && validarEmail() && confirmar("Desea enviar sus datos")) {
 		return true;
