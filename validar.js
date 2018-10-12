@@ -99,7 +99,7 @@ function validarComentarios() {
 function validar(e) {
 	borrarError();
 	function confirmar(mensaje) {
-		alertify.confirm(mensaje).set('labels', {ok:'Ok!', cancel:'Cancel'}); 
+		alertify.confirm(mensaje).set('labels', {ok:'Ok!', cancel:'Cancel'}).showModal(); 
 	} 
 	if (validarNombre() && validarApellido() && validarTelefono() && validarEmail() && confirmar("Desea enviar sus datos")) {
 		return true;
